@@ -7,7 +7,7 @@
 Please, follow the following link to my Google Drive: [Game](https://drive.google.com/drive/folders/1HoHlfZznn2yOOjTh81LHZwWzboP0LbvA?usp=sharing)
 
 - download the folder
-- run file called ```wordle_extra.exe```
+- run file called ```wordle_extra.exe``` (i.e., double-click, my nubes <3)
 
 ## If you're interested in source code:
 
