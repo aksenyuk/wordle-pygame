@@ -7,20 +7,18 @@ pygame.init()
 
 # Constants
 info = pygame.display.Info()
-# print(info.current_w, info.current_h)  ###### 1536 864 for laptop
 
-WIDTH, HEIGHT = 890, 750 ####################################### changed from 1000 to 750
+WIDTH, HEIGHT = 890, 750
 
 SCREEN = pygame.display.set_mode((WIDTH, HEIGHT))
 BACKGROUND = pygame.image.load("assets/Check Starting Tiles.png")
-BACKGROUND = pygame.transform.smoothscale(BACKGROUND, (677/1.5, 580/1.5))  #### RESCALE EVERYTHING BY 1.5 TIMES
-BACKGROUND_RECT = BACKGROUND.get_rect(center=(445, 265)) ##  356 to 265 i.e. difference of 91
+BACKGROUND = pygame.transform.smoothscale(BACKGROUND, (677/1.5, 580/1.5))
+BACKGROUND_RECT = BACKGROUND.get_rect(center=(445, 265)) 
 ICON = pygame.image.load("assets/Icon.png")
 
 pygame.display.set_caption("Wordle")
 pygame.display.set_icon(ICON)
 
-################
 TOP = pygame.image.load('top.jpg')
 TOP_RECT = TOP.get_rect(center=(445, 25))
 RESTART = pygame.image.load('restart.jpg')
@@ -30,16 +28,7 @@ QUESTION = pygame.image.load('question.jpg')
 QUESTION_RECT = QUESTION.get_rect(center=(WIDTH - 40, 25))
 
 main_font = pygame.font.Font("assets/HelveticaLT63MediumExtendedOblique.ttf", 14)
-# hint_text = main_font.render("Hint: that's what you have to say to me", True, "pink")
-# hint_rect = hint_text.get_rect(center=(WIDTH-50, 980))
-
-# pygame.draw.rect(SCREEN, "white", (10, 655, 1000, 600))
 help_font = pygame.font.Font("assets/HelveticaLT63MediumExtendedOblique.ttf", 14)
-# help_text = help_font.render('Help', True, "black")
-# help_rect = help_text.get_rect(center=(WIDTH - 40, 20))
-# pygame.draw.rect(SCREEN, "black", [WIDTH - 42, 22, 30, 20])
-# pygame.display.update()
-################
 
 GREEN = "#6aaa64"
 YELLOW = "#c9b458"
@@ -61,28 +50,20 @@ SCREEN.blit(TOP, TOP_RECT)
 pygame.display.update()
 SCREEN.blit(RESTART, RESTART_RECT)
 pygame.display.update()
-# SCREEN.blit(hint_text, hint_rect)
-# SCREEN.blit(help_text, help_rect)
 SCREEN.blit(QUESTION, QUESTION_RECT)
 pygame.display.update()
 
 LETTER_X_SPACING = 56.7
-LETTER_Y_SPACING = 72 + 26 ###############################
+LETTER_Y_SPACING = 72 + 26
 LETTER_SIZE = 50
 
 # Global variables
 
 guesses_count = 0
-
-# guesses is a 2D list that will store guesses. A guess will be a list of letters.
-# The list will be iterated through and each letter in each guess will be drawn on the screen.
 guesses = [[]] * 6
-
 current_guess = []
 current_guess_string = ""
 current_letter_bg_x = 222
-
-# Indicators is a list storing all the Indicator object. An indicator is that button thing with all the letters you see.
 indicators = []
 
 game_result = ""
@@ -137,12 +118,12 @@ class Indicator:
             pygame.draw.rect(SCREEN, "#5C9756", self.rect, 3, border_radius=8)
         self.text_surface = AVAILABLE_LETTER_FONT.render(self.text, True, "black")
         self.text_rect = self.text_surface.get_rect(center=(self.x+24, self.y+27))
-        SCREEN.blit(self.text_surface, self.text_rect) ############## here
+        SCREEN.blit(self.text_surface, self.text_rect)
         pygame.display.update()
 
 # Drawing the indicators on the screen.
 
-indicator_x, indicator_y = 172, 500 #### 124 --> 172 = 48 of difference
+indicator_x, indicator_y = 172, 500
 
 for i in range(3):
     for letter in ALPHABET[i]:
@@ -161,7 +142,7 @@ def check_guess(guess_to_check):
     # Goes through each letter and checks if it should be green, yellow, or grey.
     global current_guess, current_guess_string, guesses_count, current_letter_bg_x, game_result
     game_decided = False
-    for i in range(8): #############################
+    for i in range(8):
         lowercase_letter = guess_to_check[i].text.lower()
         if lowercase_letter in CORRECT_WORD:
             if lowercase_letter == CORRECT_WORD[i]:
@@ -319,7 +300,7 @@ while True:
             else:
                 key_pressed = event.unicode.upper()
                 if key_pressed in "QWERTYUIOPASDFGHJKLZXCVBNM" and key_pressed != "":
-                    if len(current_guess_string) < 8: #############################
+                    if len(current_guess_string) < 8:
                         create_new_letter()
 
 
