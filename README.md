@@ -11,7 +11,7 @@ Please, follow the following link to my Google Drive: [Game](https://drive.googl
 
 ## If you're interested in source code:
 
-It's posted here as ```wordle_extra.py```
+It's posted here as ```wordle_extra.py``` (some trivial comments can be found there)
 
 ## In case of any suggestions (design/funny detail you'd like to add):
 
