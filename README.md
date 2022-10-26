@@ -18,3 +18,5 @@ It's posted here as ```wordle_extra.py``` (some trivial comments can be found th
 DM me, gurl :)))
 
 ##### P.S. As for now, its ***mood*** is related to the main reason of this program establishment, but further it's gonna to changed to smth neutral (but fun, ofc).
+
+### Check out JavaScript app for Wordle-Extra: [Wordle Extra](https://github.com/allsuitablenamesarealreadytaken/wordle-extra)
